@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Hi, im Dobot!</title>
+
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+<div class="container">
+
+	<div class="row">
+		<div class="twelve columns">
+			<h1>Hi, im Dobot!</h1>
+			<h4 class="subheader">A bot to do... potentially anything</h4>
+			<dl class="nice tabs contained">
+				<dd><a href="#interactive" class="active">Interactive</a></dd>
+				<dd><a href="#history">History</a></dd>
+				<dd><a href="#commands">Commands</a></dd>
+			</dl>
+
+			<ul class="nice tabs-content contained">
+				<li class="active" id="interactiveTab">
+					<div class="row">
+						<div class="twelve columns">
+							<h2>How can i help?</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="four columns">
+							<textarea id="command" type="text"></textarea>
+						</div>
+						<div class="eight columns">
+							<ul id="terminal">
+
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li id="historyTab">
+					<h2>These are the things i've helped you with lately!</h2>
+
+				</li>
+				<li id="commandsTab">
+					<h2>Stuff that i'm awesome at:</h2>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://localhost:8888/socket.io/socket.io.js"></script>
+<script src="/javascripts/foundation.js"></script>
+<script src="/javascripts/app.js"></script>
+
+</body>
+</html>

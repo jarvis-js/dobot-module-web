@@ -1,0 +1,17 @@
+{
+  "author": "Paul Dixon <paul.dixon@mintbridge.co.uk>",
+  "name": "dobot-module-web",
+  "description": "A web interface for dobot",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dobot/dobot-module-web.git"
+  },
+  "engines": {
+    "node": "~0.6.2"
+  },
+  "dependencies": {
+    "express": ">= 2.5.0"
+  },
+  "devDependencies": {}
+}
