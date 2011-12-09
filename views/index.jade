@@ -1,0 +1,29 @@
+div.row
+  div.twelve.columns
+    h1 Hi, im Dobot!
+    h4.subheader A bot to do... potentially anything
+    dl.nice.tabs.contained
+      dd
+        a.active(href="#interactive") Interactive
+      dd
+        a(href="#history") History
+      dd
+        a(href="#commands") Commands
+    ul.nice.tabs-content.contained
+      li#interactiveTab.active
+        div.row
+          div.twelve.columns
+            h2 How can I Help?
+        div.row
+          div.four.columns
+            textarea#command
+          div.eight.columns
+            ul#terminal
+      li#historyTab
+        div.row
+          div.twelve.columns
+            h2 These are the things i've helped you with lately!
+      li#commandsTab
+        div.row
+          div.twelve.columns
+            h2 Stuff that i'm awesome at:

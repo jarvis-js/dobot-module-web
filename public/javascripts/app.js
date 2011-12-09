@@ -70,7 +70,7 @@ $(document).ready(function () {
 		}
 	});
 
-	var socket = io.connect('http://localhost:8888');
+	var socket = io.connect(HOST);
 	var index = 0;
 
 	socket.on('response', function (data) {
