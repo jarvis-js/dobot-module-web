@@ -70,19 +70,46 @@ $(document).ready(function () {
 		}
 	});
 
-});
-
-$(function() {
 	var socket = io.connect('http://localhost:8888');
+	var index = 0;
+
 	socket.on('response', function (data) {
 		$('#terminal').append($('<li class="response">').html(data.toString()));
 	});
+
 	$(document).on('keyup', function(e) {
 		if (e.keyCode == 13) {
-			var command = $('#command').val();
-			$('#command').val('');
-			$('#terminal').append($('<li class="command">').html(command));
-			socket.emit('message', { command: command });
+			var command = $.trim($('#command').val());
+			if (command.length > 1)
+			{
+				$('#command').val('');
+				$('#terminal').append($('<li class="command">').html(command));
+				index = $('#terminal li.command').length;
+				$('#terminal li.command').removeClass('active');
+				socket.emit('message', { command: command });
+			}
+		}
+		else if (e.keyCode == 38) {
+			if (index == 0) {
+				index = $('#terminal li.command').length;
+			}	
+			else {
+				index--;
+			}
+			var selected = $('#terminal li.command:eq('+index+')');
+			$(selected).addClass('active').siblings().removeClass('active');
+			$('#command').val($(selected).html());
+		}
+		else if (e.keyCode == 40) {
+			if (index == null || index == $('#terminal li.command').length) {
+				index = 0;
+			}
+			else {
+				index++;
+			}
+			var selected = $('#terminal li.command:eq('+index+')')
+			$(selected).addClass('active').siblings().removeClass('active');
+			$('#command').val($(selected).html());
 		}
 	})
 });

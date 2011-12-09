@@ -31,3 +31,6 @@ ul#terminal li.message {
 ul#terminal li.response {
 	border-left: 3px solid #00A6FC;
 }
+ul#terminal li.active {
+	background-color: #f5f5f5
+}
