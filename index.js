@@ -34,4 +34,7 @@ module.exports = function(bot, module) {
 
 	app.listen(module.options.port || 3000);
 
+	module.unload = function() {
+		app.close();
+	};
 };
