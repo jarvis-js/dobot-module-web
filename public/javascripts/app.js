@@ -70,11 +70,12 @@ $(document).ready(function () {
 		}
 	});
 
-	var socket = io.connect(HOST);
+	var socket = io.connect('http://localhost:8888');
 	var index = 0;
 
 	socket.on('response', function (data) {
-		$('#terminal').append($('<li class="response">').html(data.toString()));
+		var res = $.linkify(data.toString());
+		$('#terminal').append($('<li class="response">').html(res));
 	});
 
 	$(document).on('keyup', function(e) {
