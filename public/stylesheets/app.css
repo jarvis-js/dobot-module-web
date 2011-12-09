@@ -9,13 +9,13 @@ textarea#command {
 	border: 1px solid #ddd;
 	border-bottom: 3px solid #00A6FC;
 	font-size:2em;
+	height: 8em;
 	margin-bottom:0.7em;
 	width: 100%;
 }
 ul#terminal {
 	border: 1px solid #eee;
 	margin: 0;
-	height:60%;
 }
 ul#terminal li {
 	border-bottom: 1px solid #ddd;
