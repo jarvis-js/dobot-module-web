@@ -7,14 +7,14 @@ $(document).ready(function () {
 	/* Remove if you don't need :) */
 
 	function activateTab($tab) {
-	  var $activeTab = $tab.closest('dl').find('a.active'),
-	      contentLocation = $tab.attr("href") + 'Tab';
+		var $activeTab = $tab.closest('dl').find('a.active'),
+		contentLocation = $tab.attr("href") + 'Tab';
 
-	  //Make Tab Active
-	  $activeTab.removeClass('active');
-	  $tab.addClass('active');
+		//Make Tab Active
+		$activeTab.removeClass('active');
+		$tab.addClass('active');
 
-    //Show Tab Content
+		//Show Tab Content
 		$(contentLocation).closest('.tabs-content').find('li').hide();
 		$(contentLocation).show();
 	}
@@ -23,13 +23,13 @@ $(document).ready(function () {
 		//Get all tabs
 		var tabs = $(this).children('dd').children('a');
 		tabs.click(function (e) {
-		  activateTab($(this));
+			activateTab($(this));
 		});
 	});
 
 	if (window.location.hash) {
-    activateTab($('a[href="' + window.location.hash + '"]'));
-  }
+		activateTab($('a[href="' + window.location.hash + '"]'));
+	}
 
 
 	/* PLACEHOLDER FOR FORMS ------------- */
@@ -41,7 +41,7 @@ $(document).ready(function () {
 	$('.nav-bar li a, .nav-bar li a:after').each(function() {
 		$(this).data('clicks', 0);
 	});
-	$('.nav-bar li a, .nav-bar li a:after').bind('touchend click', function(e){
+	$('.nav-bar li a, .nav-bar li a:after').bind('touchend click', function(e) {
 		e.stopPropagation();
 		e.preventDefault();
 		var f = $(this).siblings('.flyout');
@@ -78,11 +78,11 @@ $(document).ready(function () {
 		$('#terminal').append($('<li class="response">').html(res));
 	});
 
+	var selected = null;
 	$(document).on('keyup', function(e) {
 		if (e.keyCode == 13) {
 			var command = $.trim($('#command').val());
-			if (command.length > 1)
-			{
+			if (command.length > 1) {
 				$('#command').val('');
 				$('#terminal').append($('<li class="command">').html(command));
 				index = $('#terminal li.command').length;
@@ -91,26 +91,26 @@ $(document).ready(function () {
 			}
 		}
 		else if (e.keyCode == 38) {
-			if (index == 0) {
+			if (index === 0) {
 				index = $('#terminal li.command').length;
-			}	
+			}
 			else {
 				index--;
 			}
-			var selected = $('#terminal li.command:eq('+index+')');
+			selected = $('#terminal li.command:eq('+index+')');
 			$(selected).addClass('active').siblings().removeClass('active');
 			$('#command').val($(selected).html());
 		}
 		else if (e.keyCode == 40) {
-			if (index == null || index == $('#terminal li.command').length) {
+			if (index === null || index == $('#terminal li.command').length) {
 				index = 0;
 			}
 			else {
 				index++;
 			}
-			var selected = $('#terminal li.command:eq('+index+')')
+			selected = $('#terminal li.command:eq('+index+')');
 			$(selected).addClass('active').siblings().removeClass('active');
 			$('#command').val($(selected).html());
 		}
-	})
+	});
 });
